@@ -1,2 +1,3 @@
 # ctci
-Solutions of questions in Crack the Code Interview book
+Solutions for questions in Crack the Code Interview book
+
