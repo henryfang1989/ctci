@@ -1,20 +1,3 @@
-class Stack:
-
-    def __init__(self):
-        self.s = []
-
-    def add(self, val):
-        self.s.append(val)
-
-    def pop(self):
-        return self.s.pop()
-
-    def is_empty(self):
-        return not self.s
-
-    def print_stack(self):
-        print self.s
-
 class Node:
 
 	def __init__(self, val):
@@ -61,3 +44,29 @@ def print_linkedlist(head):
 			msg += str(tmp.val)
 		tmp = tmp.next
 	print msg
+
+class Stack:
+	def __init__(self):
+		self.s = []
+
+	def push(self, val):
+		self.s.append(val)
+
+	def pop(self):
+		if not self.s:
+			raise Exception("stack is empty")
+		return self.s.pop()
+
+	def size(self):
+		return len(self.s)
+
+	def is_empty(self):
+		return not self.s
+
+	def peek(self):
+		if not self.s:
+			raise Exception("stack is empty")
+		return self.s[-1]
+
+	def print_stack(self):
+		print self.s

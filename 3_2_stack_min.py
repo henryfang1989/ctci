@@ -71,6 +71,11 @@ s.pop()
 assert s.min() == 2
 
 
+# use a variable to track the min val for current
+# stack status. If a smaller val pushed to stack,
+# replace the min val and push the negative diff to
+# the stack. Push the positve diff to stack if a larger
+# val pushed to stack
 class stack_min_diff:
 
     def __init__(self):
@@ -94,6 +99,8 @@ class stack_min_diff:
             ret, self.m = self.m, self.m - ret
         return ret
 
+    # time: O(1)
+    # space: O(1)
     def min(self):
         return self.m
 
