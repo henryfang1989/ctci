@@ -8,7 +8,7 @@ def is_unique(s):
 		elif ss[i] == ss[i-1]:
 			return False
 	return True
-	
+
 print is_unique("abc")
 print is_unique("")
 print is_unique("aa")

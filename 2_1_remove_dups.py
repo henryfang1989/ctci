@@ -1,7 +1,7 @@
 # question: write code to remove diplicates from an unsorted linked list.
 # follow up: how would you solve this problem if a temporary buffer is not allowed?
 
-from linked_list import Linkedlist
+from utils import Linkedlist
 
 def remove_dups(head):
 	vals = set()
@@ -19,11 +19,10 @@ def remove_dups(head):
 
 ll = Linkedlist([1,1,2,2,3])
 remove_dups(ll.head)
-ll.print_ll()
+print ll
 
 remove_dups(ll.head)
-ll.print_ll()
-
+print ll
 
 # follow up
 def remove_dups_2(head):
@@ -42,7 +41,7 @@ def remove_dups_2(head):
 
 ll = Linkedlist([1,1,2,2,3])
 remove_dups(ll.head)
-ll.print_ll()
+print ll
 
 remove_dups_2(ll.head)
-ll.print_ll()
+print ll

@@ -31,9 +31,8 @@ class MyQueue:
         return moved
 
     def print_q(self):
-        self.front.print_stack()
-        self.end.print_stack()
-
+        print self.front
+        print self.end
 
 q = MyQueue()
 q.enqueue(1)

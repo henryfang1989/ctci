@@ -12,7 +12,7 @@
 # Input: 6->1->7 + 2->9->5. that is 617+295
 # Output: 9->1->2 that is 912
 
-from linked_list import Linkedlist, print_linkedlist, Node
+from utils import Linkedlist, print_linkedlist, Node
 
 def sum_lists(head1, head2):
 	dummy = tmp = Node(-1)
@@ -54,8 +54,8 @@ ll1 = Linkedlist([1,2,3,4,5])
 
 ll2 = Linkedlist([4,5,6,7])
 
-ll1.print_ll()
-ll2.print_ll()
+print ll1
+print ll2
 print_linkedlist(sum_lists(ll1.head, ll2.head))
 
 
@@ -125,6 +125,6 @@ print("Follow up")
 ll1 = Linkedlist([1,2,3,4,5])
 ll2 = Linkedlist([4,5,6,7])
 
-ll1.print_ll()
-ll2.print_ll()
+print ll1
+print ll2
 print_linkedlist(sum_lists2(ll1.head, ll2.head))

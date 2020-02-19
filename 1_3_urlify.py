@@ -7,7 +7,7 @@
 def urlify(strlist, length):
 	replace = "%20"
 	tail = length-1
-	
+
 	i = len(strlist)-1
 	while tail >= 0:
 		if strlist[tail] != " ":
@@ -20,8 +20,6 @@ def urlify(strlist, length):
 				strlist[i] = replace[j]
 				i -= 1
 	return strlist
-		
-				
-	
+
 str = "Mr John Smith    "
 print urlify(list(str), 13)

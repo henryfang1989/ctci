@@ -4,7 +4,7 @@
 # Input: 3->5->8->5->10->2->1 (partition = 5)
 # Output: 3->1->2->10->5->5->8
 
-from linked_list import Linkedlist, print_linkedlist
+from utils import Linkedlist, print_linkedlist
 
 def partition(head, par):
 	small = Linkedlist([])
@@ -32,7 +32,7 @@ def partition(head, par):
 # space: (1)
 
 ll = Linkedlist([1,5,2,4,3])
-partition(ll.head,3).print_ll()
+print partition(ll.head,3)
 
 # use the head as parition node to seperate the nodes
 def partition2(node, par):

@@ -9,7 +9,7 @@
 # solution #3
 # find the middle node and compare by from middle, but still need the recursive call
 
-from linked_list import Node, Linkedlist
+from utils import Node, Linkedlist
 def reverse_compare(head):
     dummy = Node(-1)
     tmp = head

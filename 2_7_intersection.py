@@ -40,7 +40,7 @@ def length_of(head):
 # Note: we cannot compare from the tail of linked lists. Because tails of linked lists maybe forked.
 # Then the recursive way to find from tails of linked list is same as from the beginning of linked lists.
 
-from linked_list import Node
+from utils import Node
 
 n1, n2, n3, n4, n5 = Node(1), Node(2), Node(3), Node(4), Node(5)
 head1 = n1

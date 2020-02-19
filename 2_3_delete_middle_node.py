@@ -11,8 +11,8 @@ def delete_middle_node(node):
     node.val, node.next.val == node.next.val, node.val
     node.next = node.next.next
 
-from linked_list import Linkedlist
+from utils import Linkedlist
 
 ll = Linkedlist([1,2,3,4])
 delete_middle_node(ll.head)
-ll.print_ll()
+print ll

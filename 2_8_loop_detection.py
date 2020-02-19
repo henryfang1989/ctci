@@ -27,7 +27,7 @@ def loop_detection(head):
 # time: O(n)
 # space: O(1)
 
-from linked_list import Node
+from utils import Node
 
 n1, n2, n3, n4, n5 = Node(1), Node(2), Node(3), Node(4), Node(5)
 head = n1

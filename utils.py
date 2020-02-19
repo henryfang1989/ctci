@@ -23,7 +23,7 @@ class Linkedlist:
 			self.tail.next = new_node
 		self.tail = new_node
 
-	def print_ll(self):
+	def __repr__(self):
 		tmp = self.head
 		msg = ""
 		while tmp:
@@ -32,7 +32,7 @@ class Linkedlist:
 			else:
 				msg += str(tmp.val)
 			tmp = tmp.next
-		print msg
+		return msg
 
 def print_linkedlist(head):
 	tmp = head
@@ -68,5 +68,31 @@ class Stack:
 			raise Exception("stack is empty")
 		return self.s[-1]
 
-	def print_stack(self):
-		print self.s
+	def __repr__(self):
+		return " ".join([str(e) for e in self.s])
+
+from collections import deque
+class Queue:
+	def __init__(self):
+		self.q = deque()
+
+	def enqueue(self, val):
+		self.q.append(val)
+
+	def dequeue(self):
+		self.check_empty()
+		return self.q.popleft()
+
+	def peek(self):
+		self.check_empty()
+		return self.q[0]
+
+	def check_empty(self):
+		if not self.q:
+			raise Exception("Queue is empty")
+
+	def is_empty(self):
+		return not self.q
+
+	def __repr__(self):
+		return " ".join([str(e) for e in self.q])

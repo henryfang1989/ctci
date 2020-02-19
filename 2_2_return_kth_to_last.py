@@ -1,13 +1,13 @@
 # question: implement an alogrithm to find the kth to last element of singly linked list.
 
-from linked_list import Linkedlist
+from utils import Linkedlist
 
 def kth_to_last(head, k):
     fast = slow = head
     while k > 0 and fast:
         fast = fast.next
         k -= 1
-    
+
     # link list is shorter than k
     if k > 0 and not fast:
         return None

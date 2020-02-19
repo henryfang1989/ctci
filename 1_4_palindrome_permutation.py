@@ -1,4 +1,4 @@
-# question: Given a string, write a fuction to check if it it is a permutation of a palindrome. A palindrome is a word or phrase that is the same forwards and backwards. A permutation is a rearrangement of letters. The palindrome does not need to be limited to just dictionary words. 
+# question: Given a string, write a fuction to check if it it is a permutation of a palindrome. A palindrome is a word or phrase that is the same forwards and backwards. A permutation is a rearrangement of letters. The palindrome does not need to be limited to just dictionary words.
 
 # Example:
 # Input: Tact Coa
@@ -14,13 +14,13 @@ def palindrome_permutation(s):
 			hashmap[c] = 1
 		else:
 			hashmap[c] += 1
-		
+
 		# run one passs
 		if hashmap[c] % 2 == 1:
 			odd += 1
 		else:
 			odd -= 1
-			
+
 	return odd < 2
 
 assert palindrome_permutation("aa") == True
