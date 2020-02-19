@@ -18,7 +18,7 @@ def sort_stack(stack):
             buf.push(stack.pop())
     while not buf.is_empty():
         stack.push(buf.pop())
-        
+
 # time: O(n^2)
 # space: O(n)
 
@@ -31,4 +31,3 @@ s.push(2)
 s.print_stack()
 sort_stack(s)
 s.print_stack()
-            
