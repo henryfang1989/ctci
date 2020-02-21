@@ -52,8 +52,8 @@ class AnimalShelter:
         if self.cats.is_empty():
             return self.dogs.dequeue()[1]
 
-        t1, a1 = self.dogs.peek()
-        t2, a2 = self.cats.peek()
+        t1, _ = self.dogs.peek()
+        t2, _ = self.cats.peek()
         if t1 < t2:
             return self.dogs.dequeue()[1]
         else:
