@@ -140,3 +140,43 @@ class Graph:
 
 	def __repr__(self):
 		return "{}".format(self.nodes)
+
+class BinaryTreeNode:
+	def __init__(self, name):
+		self.name = name
+		self.left = None
+		self.right = None
+
+	def __repr__(self):
+		msg = str(self.name) + "->"
+		msg += str(self.left.name) if self.left else "[]" + ","
+		msg += str(self.right.name) if self.right else "[]"
+
+from collections import deque
+def binary_tree_print(root):
+	q = deque()
+	q.append(root)
+	while q:
+		sz = len(q)
+		row = []
+		for _ in xrange(sz):
+			node = q.popleft()
+			if node:
+				row.append(str(node.name))
+			else:
+				row.append("[]")
+			if not node or (not node.left and not node.right):
+				continue
+			q.append(node.left)
+			q.append(node.right)
+		print " ".join(row)
+
+import random
+def build_random_tree_from_array(array):
+    if not array:
+        return None
+    s = random.randint(0, len(array)-1)
+    root = BinaryTreeNode(array[s])
+    root.left =build_random_tree_from_array(array[:s])
+    root.right =build_random_tree_from_array(array[s+1:])
+    return root
