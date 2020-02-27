@@ -96,3 +96,47 @@ class Queue:
 
 	def __repr__(self):
 		return " ".join([str(e) for e in self.q])
+
+
+class GraphNode:
+	def __init__(self, name):
+		self.name = name
+		self.children = []
+
+	# connect node with other nodes
+	def connect(self, children):
+		if isinstance(children, list):
+			self.children += children
+		else:
+			self.children.append(children)
+
+	def __repr__(self):
+		msg = "{}->".format(self.name)
+		msg += "[" +  ",".join([str(child.name) for child in self.children]) + "]"
+		return msg
+
+class Graph:
+	def __init__(self):
+		self.nodes = {}
+
+	# guarantee the node exists in graph. create a new node if
+	# it does not exist
+	def ensure_node(self, name):
+		if name not in self.nodes:
+			self.nodes[name] = GraphNode(name)
+		return self.nodes[name]
+
+	# connect current node with other nodes
+	def connect(self, name, children_names):
+		root = self.ensure_node(name)
+		if isinstance(children_names, list):
+			for child_name in children_names:
+				root.connect(self.ensure_node(child_name))
+		else:
+			root.connect(self.ensure_node(children_names))
+
+	def get_node(self, name):
+		return self.nodes.get(name, None)
+
+	def __repr__(self):
+		return "{}".format(self.nodes)
