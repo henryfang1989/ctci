@@ -20,6 +20,8 @@ def bfs(start, end):
                 q.append(child)
                 visited.add(child)
     return False
+# time: O(n)
+# space: O(n)
 
 def dfs(start, end):
     return dfs_helper(start, end, set())
@@ -33,6 +35,8 @@ def dfs_helper(start, end, visited):
             return True
     visited.remove(start)
     return False
+# time: O(n)
+# space: O(n)
 
 g = Graph()
 g.connect(1, [2,3,4])
