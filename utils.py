@@ -201,17 +201,17 @@ class BinaryTreeNodeWithParent:
 		msg += str(self.parent.name) if self.parent else "[]"
 		return msg
 
-def build_random_tree_with_parent_from_array(array, nodes):
+def build_random_tree_with_parent_from_array(array, nodes=None):
 
 	def helper(array, parent, nodes):
 		if not array:
 			return None
-		s = random.randint(0, len(array)-1)
-		root = BinaryTreeNodeWithParent(array[s])
-		nodes[array[s]] = root
-		root.parent = parent
-		root.left =helper(array[:s], root, nodes)
-		root.right =helper(array[s+1:], root, nodes)
-		return root
+        s = random.randint(0, len(array)-1)
+        root = BinaryTreeNodeWithParent(array[s])
+        nodes[array[s]] = root
+        root.parent = parent
+        root.left =helper(array[:s], root, nodes)
+        root.right =helper(array[s+1:], root, nodes)
+        return root
 
 	return helper(array, None, nodes)
