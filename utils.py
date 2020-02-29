@@ -149,8 +149,10 @@ class BinaryTreeNode:
 
 	def __repr__(self):
 		msg = str(self.name) + "->"
-		msg += str(self.left.name) if self.left else "[]" + ","
+		msg += str(self.left.name) if self.left else "[]"
+		msg += ","
 		msg += str(self.right.name) if self.right else "[]"
+		return msg
 
 from collections import deque
 def binary_tree_print(root):
@@ -172,11 +174,44 @@ def binary_tree_print(root):
 		print " ".join(row)
 
 import random
-def build_random_tree_from_array(array):
+def build_random_tree_from_array(array, nodes=None):
     if not array:
         return None
     s = random.randint(0, len(array)-1)
     root = BinaryTreeNode(array[s])
-    root.left =build_random_tree_from_array(array[:s])
-    root.right =build_random_tree_from_array(array[s+1:])
+    if nodes is not None:
+    	nodes[array[s]] = root
+    root.left =build_random_tree_from_array(array[:s], nodes)
+    root.right =build_random_tree_from_array(array[s+1:], nodes)
     return root
+
+class BinaryTreeNodeWithParent:
+	def __init__(self, name):
+		self.name = name
+		self.left = None
+		self.right = None
+		self.parent = None
+
+	def __repr__(self):
+		msg = str(self.name) + "->"
+		msg += str(self.left.name) if self.left else "[]"
+		msg += ","
+		msg += str(self.right.name) if self.right else "[]"
+		msg += ","
+		msg += str(self.parent.name) if self.parent else "[]"
+		return msg
+
+def build_random_tree_with_parent_from_array(array, nodes):
+
+	def helper(array, parent, nodes):
+		if not array:
+			return None
+		s = random.randint(0, len(array)-1)
+		root = BinaryTreeNodeWithParent(array[s])
+		nodes[array[s]] = root
+		root.parent = parent
+		root.left =helper(array[:s], root, nodes)
+		root.right =helper(array[s+1:], root, nodes)
+		return root
+
+	return helper(array, None, nodes)
