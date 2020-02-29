@@ -175,15 +175,15 @@ def binary_tree_print(root):
 
 import random
 def build_random_tree_from_array(array, nodes=None):
-    if not array:
-        return None
-    s = random.randint(0, len(array)-1)
-    root = BinaryTreeNode(array[s])
-    if nodes is not None:
-    	nodes[array[s]] = root
-    root.left =build_random_tree_from_array(array[:s], nodes)
-    root.right =build_random_tree_from_array(array[s+1:], nodes)
-    return root
+	if not array:
+		return None
+	s = random.randint(0, len(array)-1)
+	root = BinaryTreeNode(array[s])
+	if nodes is not None:
+		nodes[array[s]] = root
+	root.left =build_random_tree_from_array(array[:s], nodes)
+	root.right =build_random_tree_from_array(array[s+1:], nodes)
+	return root
 
 class BinaryTreeNodeWithParent:
 	def __init__(self, name):
