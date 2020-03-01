@@ -65,10 +65,11 @@ print build(projects)
 # 2. use DFS to set the order of all children of a dep node and add
 # the dep node to the begining of build order
 
+
 def dfs_build(projects):
     # build graph
     graph = {}
-    states = {} # 0:unvisited, 1:processing, 2:finished
+    states = {}  # 0:unvisited, 1:processing, 2:finished
     # O(e)
     for prev, cur in projects:
         if prev not in graph:
@@ -78,7 +79,7 @@ def dfs_build(projects):
         graph[prev].append(cur)
         states[prev] = 0
         states[cur] = 0
-    
+
     # dfs set the build order
     from collections import deque
     order = deque()
@@ -86,7 +87,8 @@ def dfs_build(projects):
         if not dfs_helper(p, graph, states, order):
             return "ERROR"
     return list(order)
-        
+
+
 # memorization DFS
 def dfs_helper(project, graph, states, build_order):
     if states[project] == 1:
@@ -104,9 +106,10 @@ def dfs_helper(project, graph, states, build_order):
     states[project] = 2
     build_order.appendleft(project)
     return True
+
+
 # time: O(n+e)
 # space: O(n)
-
 
 projects = [(1, 2), (2, 3), (1, 3), (4, 5)]
 print dfs_build(projects)

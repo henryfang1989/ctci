@@ -1,3 +1,2 @@
-language = "python"
-  run = ""
+  run = "f=`ls -t | grep '^[0-9]' | head -n 1`; echo $f; python $f"
   
